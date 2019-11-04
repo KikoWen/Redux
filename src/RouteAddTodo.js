@@ -26,7 +26,8 @@ class RouteAddTodo extends Component{
 		var todo = {
 			id: Date.now(),
 			content: this.state.contentInput,
-			priority:this.state.priorityInput
+			priority:this.state.priorityInput,
+			username:this.props.currentUser.username
 		};
 		// var action ={
 		// 	type: 'ADD_TODO',
@@ -62,6 +63,14 @@ class RouteAddTodo extends Component{
 		);
 	}
 }
+function mapStateToProps(state){
+	return{
+		currentUser: state.user
+	
+	}
+
+}
+
 function mapDispatchToProps(dispatch){
 	return{
 		addTodo: (todo) => {
@@ -76,4 +85,4 @@ function mapDispatchToProps(dispatch){
 
 }
 
-export default connect(null,mapDispatchToProps)(RouteAddTodo);// if nothing inside the first(), it will put the dispatch into 
+export default connect(mapStateToProps,mapDispatchToProps)(RouteAddTodo);// if nothing inside the first(), it will put the dispatch into 

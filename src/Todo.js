@@ -32,7 +32,7 @@ class Todo extends Component{
           </div>
           <div className="todo-priority">
 
-            { this.props.priority}
+            { this.props.priority} | by: { this.props.username} 
 
           </div>
         </div>
